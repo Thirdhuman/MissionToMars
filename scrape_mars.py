@@ -20,10 +20,10 @@ def scrape():
     title_body = News()
     mars_db["mars_news"] = title_body[0]
     mars_db["mars_paragraph"] = title_body[1]
-    mars_db["mars_image"] = marsImage()
-    mars_db["mars_weather"] = marsWeather()
-    mars_db["mars_facts"] = marsFacts()
-    mars_db["mars_hemisphere"] = MarsHemisphere()
+    mars_db["mars_image"] = Image()
+    mars_db["mars_weather"] = Weather()
+    mars_db["mars_facts"] = Facts()
+    mars_db["mars_hemisphere"] = Hemisphere()
     return mars_db
 
 
@@ -41,7 +41,7 @@ def News():
 
 
 # In[15]:
-def marsImage():
+def Image():
     url_jpl = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
     browser.visit(url_jpl)
     html = browser.html
@@ -53,7 +53,7 @@ def marsImage():
 
 
 
-def marsWeather():
+def Weather():
     import tweepy
     # Twitter API Keys
     from config import (consumer_key, 
@@ -74,7 +74,7 @@ def marsWeather():
 
 # In[18]:
 
-def marsFacts():
+def Facts():
     url_facts="https://space-facts.com/mars/"
     browser.visit(url_facts)
     html_space = browser.html
@@ -91,7 +91,7 @@ def marsFacts():
     # print('x'*70)
     return mars_facts
 
-def MarsHemisphere():
+def Hemisphere():
     # Astrogeology Data
     url_astrogeology = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
     browser.visit(url_astrogeology)
