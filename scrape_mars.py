@@ -15,19 +15,18 @@ def scrape():
     executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
     browser = Browser('chrome', **executable_path, headless=False)
     mars_db = {}
-    output = marsNews()
+    title_body = News()
     mars_db["mars_news"] = title_body[0]
     mars_db["mars_paragraph"] = title_body[1]
     mars_db["mars_image"] = marsImage()
     mars_db["mars_weather"] = marsWeather()
     mars_db["mars_facts"] = marsFacts()
     mars_db["mars_hemisphere"] = MarsHemisphere()
-
     return mars_db
 
 
 # In[14]:
-def marsNews():
+def News():
     url_nasa = 'https://mars.nasa.gov/news/'
     browser.visit(url_nasa)
     html = browser.html
