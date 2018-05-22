@@ -97,7 +97,7 @@ def Hemisphere():
     browser.visit(url_astrogeology)
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
-    mars_hemisphere = []
+    hemisphere_data = []
 
     products = soup.find("div", class_ = "result-list" )
     hemispheres = products.find_all("div", class_="item")
@@ -111,7 +111,7 @@ def Hemisphere():
         soup=BeautifulSoup(html, "html.parser")
         downloads = soup.find("div", class_="downloads")
         image_url = downloads.find("a")["href"]
-        mars_hemisphere.append({"title": title, "img_url": image_url})
-    return mars_hemisphere
+        hemisphere_data.append({"title": title, "img_url": image_url})
+    return hemisphere_data
 
 
