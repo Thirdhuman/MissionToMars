@@ -10,10 +10,12 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
+#get_ipython().system('which chromedriver')
+executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
+browser = Browser('chrome', **executable_path, headless=False)
+
+
 def scrape():
-    get_ipython().system('which chromedriver')
-    executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
-    browser = Browser('chrome', **executable_path, headless=False)
     mars_db = {}
     title_body = News()
     mars_db["mars_news"] = title_body[0]
