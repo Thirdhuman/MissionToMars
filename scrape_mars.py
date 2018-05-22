@@ -16,12 +16,12 @@ def scrape():
     browser = Browser('chrome', **executable_path, headless=False)
     mars_db = {}
     output = marsNews()
-    final_data["mars_news"] = title_body[0]
-    final_data["mars_paragraph"] = title_body[1]
-    final_data["mars_image"] = marsImage()
-    final_data["mars_weather"] = marsWeather()
-    final_data["mars_facts"] = marsFacts()
-    final_data["mars_hemisphere"] = MarsHemisphere()
+    mars_db["mars_news"] = title_body[0]
+    mars_db["mars_paragraph"] = title_body[1]
+    mars_db["mars_image"] = marsImage()
+    mars_db["mars_weather"] = marsWeather()
+    mars_db["mars_facts"] = marsFacts()
+    mars_db["mars_hemisphere"] = MarsHemisphere()
 
     return mars_db
 
